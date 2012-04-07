@@ -4,16 +4,14 @@ import com.intellij.lang.annotation.Annotation;
 import com.intellij.lang.annotation.AnnotationHolder;
 import com.intellij.lang.annotation.Annotator;
 import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiFile;
 import com.intellij.util.containers.HashSet;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.plugins.clojure.highlighter.ClojureSyntaxHighlighter;
 import org.jetbrains.plugins.clojure.psi.api.ClList;
 import org.jetbrains.plugins.clojure.psi.api.symbols.ClSymbol;
-import org.jetbrains.plugins.clojure.repl.ClojureConsoleRunner;
 
-import java.util.Set;
 import java.util.Arrays;
+import java.util.Set;
 
 /**
  * @author ilyas
@@ -23,7 +21,7 @@ public class ClojureAnnotator implements Annotator {
 
   static {
     IMPLICIT_NAMES.addAll(Arrays.asList("def", "new", "try", "throw", "catch", "finally", "ns", "in-ns", "if", "do",
-        "recur", "quote", "var", "set!"));
+        "recur", "quote", "var", "set!", "monitor-enter", "monitor-exit", "."));
   }
 
   public void annotate(@NotNull PsiElement element, @NotNull AnnotationHolder holder) {
